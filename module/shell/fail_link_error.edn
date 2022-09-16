@@ -1,0 +1,53 @@
+{:convex.shell/exception
+ {:via
+  [{:type java.lang.UnsatisfiedLinkError,
+    :message
+    "com.goterl.lazysodium.Sodium.crypto_sign_seed_keypair([B[B[B)I [symbol: Java_com_goterl_lazysodium_Sodium_crypto_1sign_1seed_1keypair or Java_com_goterl_lazysodium_Sodium_crypto_1sign_1seed_1keypair___3B_3B_3B]",
+    :at
+    [com.oracle.svm.jni.access.JNINativeLinkage
+     getOrFindEntryPoint
+     "JNINativeLinkage.java"
+     154]}],
+  :trace
+  [[com.oracle.svm.jni.access.JNINativeLinkage
+    getOrFindEntryPoint
+    "JNINativeLinkage.java"
+    154]
+   [com.oracle.svm.jni.JNIGeneratedMethodSupport
+    nativeCallAddress
+    "JNIGeneratedMethodSupport.java"
+    52]
+   [com.goterl.lazysodium.Sodium
+    crypto_sign_seed_keypair
+    "Sodium.java"
+    -1]
+   [com.goterl.lazysodium.LazySodium
+    cryptoSignSeedKeypair
+    "LazySodium.java"
+    1103]
+   [convex.core.crypto.Ed25519KeyPair create "Ed25519KeyPair.java" 55]
+   [convex.core.crypto.Ed25519KeyPair
+    generate
+    "Ed25519KeyPair.java"
+    120]
+   [convex.core.crypto.Ed25519KeyPair
+    generate
+    "Ed25519KeyPair.java"
+    66]
+   [convex.sign$ed25519 invokeStatic "sign.clj" 28]
+   [convex.shell.sreq$fn__4369 invokeStatic "sreq.clj" 562]
+   [convex.shell.sreq$fn__4369 invoke "sreq.clj" 562]
+   [clojure.lang.MultiFn invoke "MultiFn.java" 234]
+   [convex.shell.exec$trx invokeStatic "exec.clj" 139]
+   [convex.shell.exec$trx_PLUS_ invokeStatic "exec.clj" 173]
+   [convex.shell$eval invokeStatic "shell.clj" 71]
+   [convex.shell$eval invoke "shell.clj" 71]
+   [convex.shell$eval invokeStatic "shell.clj" 80]
+   [convex.shell$_main invokeStatic "shell.clj" 109]
+   [convex.shell$_main doInvoke "shell.clj" 96]
+   [clojure.lang.RestFn invoke "RestFn.java" 397]
+   [clojure.lang.AFn applyToHelper "AFn.java" 152]
+   [clojure.lang.RestFn applyTo "RestFn.java" 132]
+   [convex.shell main nil -1]],
+  :cause
+  "com.goterl.lazysodium.Sodium.crypto_sign_seed_keypair([B[B[B)I [symbol: Java_com_goterl_lazysodium_Sodium_crypto_1sign_1seed_1keypair or Java_com_goterl_lazysodium_Sodium_crypto_1sign_1seed_1keypair___3B_3B_3B]"}}

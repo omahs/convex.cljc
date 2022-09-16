@@ -109,6 +109,9 @@
 (def ^Keyword juice-track
               ($.cell/keyword "juice.track"))
 
+(def ^Keyword key-pair-gen
+              ($.cell/keyword "key-pair.gen"))
+
 (def ^Keyword library-path
               ($.cell/keyword "library-path"))
 

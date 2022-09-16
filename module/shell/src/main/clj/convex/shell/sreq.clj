@@ -31,6 +31,7 @@
             [convex.shell.stream    :as $.shell.stream]
             [convex.shell.sym       :as $.shell.sym]
             [convex.shell.time      :as $.shell.time]
+            [convex.sign            :as $.sign]
             [criterium.core         :as criterium]))
 
 
@@ -553,6 +554,23 @@
   ($.shell.exec/trx-track-juice env
                                 (.get tuple
                                       2)))
+
+
+;;;;;;;;;; Key-pair management
+
+
+(defmethod $.shell.exec/sreq
+
+  $.shell.kw/key-pair-gen
+
+  ;; Generates key pair randomly.
+
+  [env _tuple]
+
+  (let [key-pair ($.sign/ed25519)]
+    ($.shell.ctx/def-result env
+                            ($.cell/* [~($.sign/account-key key-pair)
+                                       ~(.getEncodedPrivateKey key-pair)]))))
 
 
 ;;;;;;;;;; Logging
